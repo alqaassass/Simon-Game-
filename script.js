@@ -5,7 +5,7 @@
 let gameSequence = []
 let playerSequence = []
 let temp = []
-let level = 0 
+let level = 1 
 const Randomm= Math.floor(Math.random() * 4);
 
 
@@ -18,6 +18,8 @@ const initiate = () => {
     playerSequence = []
     level = 0
     assignToCell()
+    nextLevel()
+    
 }
 
 const assignToCell = () => {
@@ -30,11 +32,19 @@ const updateGameSequence = () =>{
     cellsEl.forEach((cell, index) => {
         cell.textContent = playerSequence[index]
     })
+    
 }
 
 const handleClick = (events) => {
     const cellsIndex = events.target.id
     const cell = cellsEl[cellsIndex]
+
+    playerSequence.push(cell)
+
+    if(playerSequence === gameSequence){
+        
+        nextLevel()
+    }
 
 
     placePiece(cellsIndex)
@@ -42,6 +52,22 @@ const handleClick = (events) => {
 
 const placePiece = (index) => {
     playerSequence[index] = gameSequence
+}
+
+
+const checkIfCorrect = () => {
+    if (playerSequence.length === gameSequence.length) {
+
+    }
+
+}
+
+const nextLevel = () => {
+    level += 1
+    const Randommm= Math.floor(Math.random() * 4);
+    gameSequence.push(Randommm)
+    console.log(gameSequence)
+    console.log(level)
 }
 
 
