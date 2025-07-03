@@ -4,9 +4,9 @@
 
 let gameSequence = []
 let playerSequence = []
-let temp = []
 let level = 1 
-const Randomm= Math.floor(Math.random() * 4);
+let canClick = false
+
 
 
 const cellsEl = document.querySelectorAll('.cell')
@@ -22,9 +22,8 @@ const initiate = () => {
 }
 
 const assignToCell = () => {
+    const Randomm = Math.floor(Math.random() * 4)
     gameSequence.push(Randomm)
-    console.log(gameSequence)
-
 }
 
 const updateGameSequence = () =>{
@@ -34,58 +33,27 @@ const updateGameSequence = () =>{
     
 }
 
-const playSequence = () => {
-  let i = 0
-  const interval = setInterval(() => {
-    const cellId = gameSequence[i]
-    flashCell(cellId)
-    for (let i = 0 ; i >= gameSequence.length ; i++){
-        clearInterval(interval);
-        canClick = true
-    }
-  }, 600)
-}
-
-const flashCell = (id) => {
-  const cell = document.getElementById(id);
-  cell.classList.add('flash');
-  setTimeout(() => {
-    cell.classList.remove('flash');
-  }, 300); // how long it stays flashed
-}
-
-
 const handleClick = (events) => {
     const cellsIndex = events.target.id
     const cell = cellsEl[cellsIndex]
 
     playerSequence.push(cell)
 
-    if(playerSequence !== gameSequence){
-        
-    }else{
-       nextLevel()
+    for (let i = 0; i < playerSequence.length; i++) {
+
+        if (playerSequence[i] !== gameSequence[i]) {
+            return gameOver()
+        }
     }
-
-
-    placePiece(cellsIndex)
-}
-
-const placePiece = (index) => {
-    playerSequence[index] = gameSequence
-}
-
-
-const checkIfCorrect = () => {
     if (playerSequence.length === gameSequence.length) {
-
+        nextLevel()
     }
-
+    placePiece(cellsIndex)
 }
 
 const nextLevel = () => {
     level ++
-    const Randommm= Math.floor(Math.random() * 4);
+    const Randommm= Math.floor(Math.random() * 4)
     gameSequence.push(Randommm)
     console.log(gameSequence)
     console.log(level)
@@ -93,12 +61,10 @@ const nextLevel = () => {
 
 const gameOver = () =>{
     alert("Game Over")
-    level = 0
+    level = 1
     gameSequence = []
     playerSequence = []
 }
 
 
 initiate()
-
-

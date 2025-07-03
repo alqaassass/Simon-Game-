@@ -26,17 +26,28 @@ body {
 }
 
 .cell:hover{
-  box-shadow: inset 0px 0px 0px 3px red;
+  box-shadow: inset 0px 0px 0px 3px gray;
   box-sizing: border-box;
 
 }
 
-#0 { background-color: red; }
-#1 { background-color: green; }
-#2 { background-color: blue; }
-#3 { background-color: yellow; }
+
+
+#c0 {
+   background-color: red
+}
+#c1 { 
+  background-color: green
+}
+#c2 { 
+  background-color: blue
+}
+#c3 {
+  background-color: yellow
+}
 
 .flash {
   opacity: 0.5;
   transition: opacity 0.2s;
 }
+
