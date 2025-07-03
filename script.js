@@ -16,7 +16,6 @@ cellsEl.forEach((cell) => {
 
 const initiate = () => {
     playerSequence = []
-    level = 0
     assignToCell()
     nextLevel()
     
@@ -35,15 +34,37 @@ const updateGameSequence = () =>{
     
 }
 
+const playSequence = () => {
+  let i = 0
+  const interval = setInterval(() => {
+    const cellId = gameSequence[i]
+    flashCell(cellId)
+    for (let i = 0 ; i >= gameSequence.length ; i++){
+        clearInterval(interval);
+        canClick = true
+    }
+  }, 600)
+}
+
+const flashCell = (id) => {
+  const cell = document.getElementById(id);
+  cell.classList.add('flash');
+  setTimeout(() => {
+    cell.classList.remove('flash');
+  }, 300); // how long it stays flashed
+}
+
+
 const handleClick = (events) => {
     const cellsIndex = events.target.id
     const cell = cellsEl[cellsIndex]
 
     playerSequence.push(cell)
 
-    if(playerSequence === gameSequence){
+    if(playerSequence !== gameSequence){
         
-        nextLevel()
+    }else{
+       nextLevel()
     }
 
 
@@ -63,11 +84,18 @@ const checkIfCorrect = () => {
 }
 
 const nextLevel = () => {
-    level += 1
+    level ++
     const Randommm= Math.floor(Math.random() * 4);
     gameSequence.push(Randommm)
     console.log(gameSequence)
     console.log(level)
+}
+
+const gameOver = () =>{
+    alert("Game Over")
+    level = 0
+    gameSequence = []
+    playerSequence = []
 }
 
 
