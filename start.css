@@ -1,23 +1,35 @@
 body {
-  font-family:Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-}
-
-#startButton {
-  width: 150px;
-  height: 150px;
-  font-size: 2rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  border: 3px solid black;
-  border-radius: 10px;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background: #f9f9f9;
+  text-align: center;
 }
 
-.start {
-  display: grid;
-  grid-template-columns:auto;
-  grid-gap: 10px;
-  justify-content: center;
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: #eee;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #ddd;
 }
