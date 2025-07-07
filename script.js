@@ -16,10 +16,10 @@ cellsEl.forEach((cell) => {
 })
 
 const initiate = () => {
-  level = 1;
-  gameSequence = [];
-  playerSequence = [];
-  nextLevel();
+  level = 1
+  gameSequence = []
+  playerSequence = []
+  nextLevel()
 }
 
 const displayToPlayer = () => {
@@ -86,5 +86,15 @@ const gameOver = () =>{
     playerSequence = []
 }
 
+
+const flashCell = (color) => {
+  const cell = document.getElementById(color)
+
+  cell.classList.add('flash')
+
+  setTimeout(() => {
+    cell.classList.remove('flash')
+  }, 300)
+}
 
 initiate()
