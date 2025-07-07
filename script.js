@@ -1,7 +1,7 @@
 // i need to identify some varybles 
 // i need to identify some storages
 // i need to identify some functions 
-
+let colors = ['red', 'green', 'blue', 'yellow' ]
 let gameSequence = []
 let playerSequence = []
 let level = 1 
@@ -50,8 +50,8 @@ const displayToPlayer = () => {
 }
 
 const assignToCell = () => {
-    const Randomm = Math.floor(Math.random() * 4)
-    gameSequence.push(Randomm)
+    let randomColor = colors[Math.floor(Math.random() * 4)]
+    gameSequence.push(randomColor)
 }
 
 const updateGameSequence = () =>{
