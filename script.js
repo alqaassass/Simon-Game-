@@ -23,30 +23,21 @@ const initiate = () => {
 }
 
 const displayToPlayer = () => {
-    for( let i = 0 ; i < gameSequence.length ; i++ ){
-        let color = gameSequence[i]
-        switch (color){
-            case 0 : 
-                color = "red"
-                break;
-            case 1 : 
-                color = "green"
-                break;
-            case 2 : 
-                color = "blue"
-                break;
-            case 3 : 
-                color = "yellow"
-                break;
-            default :
-                color = "noColor"
-        }
+  canClick = false
 
-        cellsEl.classList.add(color)
-        setTimeout(1000)
-        cellsEl.classList.remove(color)
+  for (let i = 0; i < gameSequence.length; i++) {
+    const color = gameSequence[i]
+    
+    setTimeout(() => {
+      flashCell(color)
+    }, i * 1000)
+  }
 
-    }
+  setTimeout(() => {
+    canClick = true
+  }, gameSequence.length * 1000)
+
+
 }
 
 const assignToCell = () => {
@@ -62,10 +53,12 @@ const updateGameSequence = () =>{
 }
 
 const handleClick = (events) => {
-    const cellsIndex = events.target.id
-    const cell = cellsEl[cellsIndex]
+    if ( !canClick ){
+        return
+    }
 
-    playerSequence.push(parseInt(cellsIndex))
+    playerSequence.push(events)
+    flashCell(id)
 
     for (let i = 0; i < playerSequence.length; i++) {
 
