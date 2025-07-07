@@ -10,6 +10,7 @@ let canClick = false
 
 
 const cellsEl = document.querySelectorAll('.cell')
+
 cellsEl.forEach((cell) => {
     cell.addEventListener('click', () => handleClick(cell.id));
 })

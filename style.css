@@ -28,22 +28,35 @@ body {
 .cell:hover{
   box-shadow: inset 0px 0px 0px 3px gray;
   box-sizing: border-box;
+  
 
 }
 
-
-
-#c0 {
+#red {
    background-color: red
 }
-#c1 { 
+#green { 
   background-color: green
 }
-#c2 { 
+#blue { 
   background-color: blue
 }
-#c3 {
+#yellow {
   background-color: yellow
+}
+
+
+#red:hover{
+   background-color: rgb(255, 147, 147)
+}
+#green:hover { 
+  background-color: rgb(175, 255, 175)
+}
+#blue:hover { 
+  background-color: rgb(146, 146, 255)
+}
+#yellow:hover {
+  background-color: rgb(255, 255, 156)
 }
 
 .flash {
