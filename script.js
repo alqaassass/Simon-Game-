@@ -6,6 +6,8 @@ let gameSequence = []
 let playerSequence = []
 let level = 1 
 let canClick = false
+let highScore = 0
+
 
 const initiate = () => {
   level = 1
@@ -64,6 +66,13 @@ const handleClick = (events) => {
 
 const nextLevel = () => {
     level ++
+
+    document.getElementById("score").textContent = "Score: " + level - 1
+
+    if (level - 1 > highScore) {
+        highScore = level - 1
+        document.getElementById("highScore").textContent = `Highest Score: ${highScore}`
+    }
     const randomColor = colors[Math.floor(Math.random() * 4)]
     gameSequence.push(randomColor)
     playerSequence = [];
@@ -75,6 +84,7 @@ const gameOver = () =>{
     level = 1
     gameSequence = []
     playerSequence = []
+    document.getElementById("score").textContent = "Score: 0"
 }
 
 
