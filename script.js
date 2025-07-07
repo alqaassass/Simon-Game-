@@ -7,12 +7,6 @@ let playerSequence = []
 let level = 1 
 let canClick = false
 
-const cellsEl = document.querySelectorAll('.cell')
-
-cellsEl.forEach((cell) => {
-    cell.addEventListener('click', () => handleClick(cell.id));
-})
-
 const initiate = () => {
   level = 1
   gameSequence = []
@@ -91,7 +85,13 @@ const flashCell = (color) => {
 
   setTimeout(() => {
     cell.classList.remove('flash')
-  }, 300)
+  }, 1000)
 }
+
+const cellsEl = document.querySelectorAll('.cell')
+
+cellsEl.forEach((cell) => {
+    cell.addEventListener('click', () => handleClick(cell.id));
+})
 
 initiate()
