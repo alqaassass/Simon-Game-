@@ -26,10 +26,7 @@ body {
 }
 
 .cell:hover{
-  box-shadow: inset 0px 0px 0px 3px gray;
-  box-sizing: border-box;
-  
-
+  box-shadow: inset 0px 0px 0px 3px rgb(180, 180, 180);
 }
 
 #red {

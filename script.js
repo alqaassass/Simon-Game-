@@ -7,8 +7,6 @@ let playerSequence = []
 let level = 1 
 let canClick = false
 
-
-
 const cellsEl = document.querySelectorAll('.cell')
 
 cellsEl.forEach((cell) => {
@@ -36,7 +34,6 @@ const displayToPlayer = () => {
   setTimeout(() => {
     canClick = true
   }, gameSequence.length * 1000)
-
 
 }
 
