@@ -16,10 +16,10 @@ cellsEl.forEach((cell) => {
 })
 
 const initiate = () => {
-    playerSequence = []
-    assignToCell()
-    nextLevel()
-    displayToPlayer()
+  level = 1;
+  gameSequence = [];
+  playerSequence = [];
+  nextLevel();
 }
 
 const displayToPlayer = () => {
@@ -58,7 +58,7 @@ const handleClick = (events) => {
     }
 
     playerSequence.push(events)
-    flashCell(id)
+    flashCell(events)
 
     for (let i = 0; i < playerSequence.length; i++) {
 
@@ -73,10 +73,10 @@ const handleClick = (events) => {
 
 const nextLevel = () => {
     level ++
-    const Randommm= Math.floor(Math.random() * 4)
-    gameSequence.push(Randommm)
-    console.log(gameSequence)
-    console.log(level)
+    const randomColor = colors[Math.floor(Math.random() * 4)]
+    gameSequence.push(randomColor)
+    playerSequence = [];
+    displayToPlayer()
 }
 
 const gameOver = () =>{
