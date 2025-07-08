@@ -33,6 +33,6 @@ The wireframe shows the game board with four color-coded panels, each with a uni
 # Problem Solving Strategy
 --
 # Unsolved Problems
---
+The main problem that I faced is with the display method, I tryed many ways to solve it but I did't know what to do with it, the logic is there and it seems easy but I can't figure it out. :(
 # Winner
 There's no winner in this game, the game should only keep pushing to the sequence.

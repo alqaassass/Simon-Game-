@@ -18,13 +18,13 @@ const initiate = () => {
 
 const displayToPlayer = () => {
   canClick = false
-
+  // console.log("test")
   for (let i = 0; i < gameSequence.length; i++) {
     const color = gameSequence[i]
-    
+    // console.log("test")
     setTimeout(() => {
       flashCell(color)
-    }, i * 1000)
+    },1000)
   }
 
   setTimeout(() => {
@@ -66,13 +66,14 @@ const handleClick = (events) => {
 
 const nextLevel = () => {
     level ++
-
-    document.getElementById("score").textContent = "Score: " + level - 1
-
-    if (level - 1 > highScore) {
-        highScore = level - 1
-        document.getElementById("highScore").textContent = `Highest Score: ${highScore}`
-    }
+    //console.log("test")
+    // document.getElementById("score").textContent = "Score: " + level  // here I have the problem
+    //console.log("test")
+    // if (level - 1 > highScore) {
+    //     highScore = level - 1
+    //     document.getElementById("highScore").textContent = `Highest Score: ${highScore}`
+    // }
+    // console.log("test")
     const randomColor = colors[Math.floor(Math.random() * 4)]
     gameSequence.push(randomColor)
     playerSequence = [];
