@@ -22,16 +22,13 @@ const displayToPlayer = () => {
   // console.log("test displayToPlayer") // checked
   for (let i = 0; i < gameSequence.length; i++) {
     const color = gameSequence[i]
-    // console.log(color) // checked
-    // setTimeout(() => {
-    //   flashCell(color)
-    // },1000)
+    console.log(color) // checked
+    setTimeout(() => {
+      flashCell(color)
+    },i * 1000)
     // console.log(color)
     // console.log(color)
-    flashCell(color)
-    
-    // let x = document.getElementById(color)
-    // x.style.opacity = 0.5
+    // flashCell(color)
   }
 
   setTimeout(() => {
@@ -53,7 +50,8 @@ const updateGameSequence = () =>{
 }
 
 const handleClick = (events) => {
-    if ( !canClick ){
+  // console.log("test handleClick") // checked
+    if ( !canClick ){ // chatGPT expmlain this for me please
         return
     }
     console.log(events)
@@ -74,13 +72,13 @@ const handleClick = (events) => {
 const nextLevel = () => {
     level ++
     // console.log(level) // checked
-
     const randomColor = colors[Math.floor(Math.random() * 4)]
     gameSequence.push(randomColor)
     playerSequence = [];
-    // console.log(gameSequence) // checked
+    console.log(gameSequence) // checked
     // console.log(playerSequence) // checked
     displayToPlayer()
+    // console.log("test nextLevel") //checked
 }
 
 const gameOver = () =>{
@@ -93,10 +91,10 @@ const gameOver = () =>{
 
 
 const flashCell = (color) => {
-  console.log("test flashCell " + color)
+  // console.log("test flashCell " + color) //checked
   const cell = document.getElementById(`${color}`)//.style.opacity = 0.5
 
-  console.log(cell)
+  // console.log(cell) // checked
 
   cell.style.opacity = 0.5
 
