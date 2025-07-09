@@ -11,6 +11,7 @@ let highScore = 0
 
 const initiate = () => {
   level = 1
+  document.getElementById("titlee").textContent = "Simon Game"
   gameSequence = []
   playerSequence = []
   nextLevel()
@@ -48,7 +49,6 @@ const handleClick = (events) => {
         return
     }
     playerSequence.push(events)
-    console.log("player "+playerSequence)
     flashCell(events)
 
     for (let i = 0; i < playerSequence.length; i++) {
@@ -58,29 +58,36 @@ const handleClick = (events) => {
         }
     }
     if (playerSequence.length === gameSequence.length) {
+      setTimeout(() => {
         nextLevel()
+      },1500)
     }
 }
 
 const nextLevel = () => {
     level ++
+    document.getElementById("score").textContent = "Score: " + (level-1)
+    if ( level-1 >= highScore ){
+      highScore = level-1
+      document.getElementById("highScore").textContent = "Highest Score: " + (level-1)
+    }
     const randomColor = colors[Math.floor(Math.random() * 4)]
     gameSequence.push(randomColor)
     playerSequence = [];
-    console.log(gameSequence) 
-
-    setTimeout(() => {
     displayToPlayer()
-  }, 100)
     
 }
 
 const gameOver = () =>{
-    alert("Game Over")
+    document.getElementById("titlee").textContent = "Game Over"
     level = 1
     gameSequence = []
     playerSequence = []
     document.getElementById("score").textContent = "Score: 0"
+
+    setTimeout(() => {
+      initiate()
+    },2000)
 }
 
 
