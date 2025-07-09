@@ -31,7 +31,7 @@ The wireframe shows the game board with four color-coded panels, each with a uni
 * The game should keep track of the user's score and display it on the screen
 
 # Problem Solving Strategy
---
+Searching via internet (YouTube is the best :) & asking our instructers.
 # Unsolved Problems
 The main problem that I faced is with the display method, I tryed many ways to solve it but I did't know what to do with it, the logic is there and it seems easy but I can't figure it out. :(
 # Winner

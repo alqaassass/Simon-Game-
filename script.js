@@ -107,4 +107,3 @@ cellsEl.forEach((cell) => {
 })
 
 initiate()
-
